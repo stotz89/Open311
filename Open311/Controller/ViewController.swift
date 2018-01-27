@@ -54,7 +54,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //MARK: HTTP Requests
-    // Test
     
     func getOpen311Services() {
         print("Fire for Services.....")
