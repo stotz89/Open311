@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CategoryViewController.swift
 //  Open311
 //
 //  Created by Philipp Stotz on 27.01.18.
@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoryViewController: UITableViewController {
 
     @IBOutlet weak var categoryTableView: UITableView!
     
@@ -40,11 +40,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: Table View Stuff
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mServiceCategoryArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "serviceCategoryCell", for: indexPath) as! ServiceCategoryCell
         
