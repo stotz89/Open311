@@ -11,6 +11,7 @@ import UIKit
 class ServiceCategoryCell: UITableViewCell {
 
     @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var categoryDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

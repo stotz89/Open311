@@ -26,8 +26,8 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         getOpen311Services()
-        categoryTableView.delegate = self
-        categoryTableView.dataSource = self
+        //categoryTableView.delegate = self
+        //categoryTableView.dataSource = self
         
         categoryTableView.register(UINib(nibName: "ServiceCategoryCell", bundle: nil), forCellReuseIdentifier: "serviceCategoryCell")
         
@@ -49,9 +49,18 @@ class CategoryViewController: UITableViewController {
         let categoryCell = tableView.dequeueReusableCell(withIdentifier: "serviceCategoryCell", for: indexPath) as! ServiceCategoryCell
         
         categoryCell.categoryName.text = mServiceCategoryArray[indexPath.row].serviceName
+        categoryCell.categoryDescription.text = mServiceCategoryArray[indexPath.row].description
         
         return categoryCell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Button pressed")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
     
     //MARK: HTTP Requests
     
@@ -133,5 +142,14 @@ class CategoryViewController: UITableViewController {
             mRequests.append(requestModel)
         }
     }
+}
+
+//MARK: Search Bar Methods
+extension CategoryViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
 }
 
