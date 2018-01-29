@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173D7D42201FB48B00AD0198 /* RequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */; };
+		173D7D47201FBEF100AD0198 /* ServiceRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D45201FBEF100AD0198 /* ServiceRequestCell.swift */; };
+		173D7D48201FBEF100AD0198 /* ServiceRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 173D7D46201FBEF100AD0198 /* ServiceRequestCell.xib */; };
+		173D7D4A201FC34C00AD0198 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D49201FC34C00AD0198 /* RequestViewController.swift */; };
+		173D7D4C201FC5DA00AD0198 /* CreateRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D4B201FC5DA00AD0198 /* CreateRequestViewController.swift */; };
 		174A1F17201BEF6C00774A34 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1F16201BEF6B00774A34 /* RequestModel.swift */; };
 		174A1F19201BEF7400774A34 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1F18201BEF7400774A34 /* ServiceModel.swift */; };
 		174A1F1B201BF05000774A34 /* ServiceCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1F1A201BF05000774A34 /* ServiceCategoryCell.swift */; };
@@ -20,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewController.swift; sourceTree = "<group>"; };
+		173D7D45201FBEF100AD0198 /* ServiceRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestCell.swift; sourceTree = "<group>"; };
+		173D7D46201FBEF100AD0198 /* ServiceRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRequestCell.xib; sourceTree = "<group>"; };
+		173D7D49201FC34C00AD0198 /* RequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
+		173D7D4B201FC5DA00AD0198 /* CreateRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRequestViewController.swift; sourceTree = "<group>"; };
 		174A1F16201BEF6B00774A34 /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		174A1F18201BEF7400774A34 /* ServiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		174A1F1A201BF05000774A34 /* ServiceCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCategoryCell.swift; sourceTree = "<group>"; };
@@ -70,6 +80,9 @@
 			children = (
 				1769B3A7201BEDFD001B1FC4 /* AppDelegate.swift */,
 				1769B3A9201BEDFD001B1FC4 /* CategoryViewController.swift */,
+				173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */,
+				173D7D49201FC34C00AD0198 /* RequestViewController.swift */,
+				173D7D4B201FC5DA00AD0198 /* CreateRequestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -98,6 +111,8 @@
 			children = (
 				174A1F1C201BF05800774A34 /* ServiceCategoryCell.xib */,
 				174A1F1A201BF05000774A34 /* ServiceCategoryCell.swift */,
+				173D7D45201FBEF100AD0198 /* ServiceRequestCell.swift */,
+				173D7D46201FBEF100AD0198 /* ServiceRequestCell.xib */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -194,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173D7D48201FBEF100AD0198 /* ServiceRequestCell.xib in Resources */,
 				1769B3B2201BEDFD001B1FC4 /* LaunchScreen.storyboard in Resources */,
 				1769B3AF201BEDFD001B1FC4 /* Assets.xcassets in Resources */,
 				1769B3AD201BEDFD001B1FC4 /* Main.storyboard in Resources */,
@@ -266,8 +282,12 @@
 			files = (
 				1769B3AA201BEDFD001B1FC4 /* CategoryViewController.swift in Sources */,
 				1769B3A8201BEDFD001B1FC4 /* AppDelegate.swift in Sources */,
+				173D7D47201FBEF100AD0198 /* ServiceRequestCell.swift in Sources */,
 				174A1F1B201BF05000774A34 /* ServiceCategoryCell.swift in Sources */,
 				174A1F17201BEF6C00774A34 /* RequestModel.swift in Sources */,
+				173D7D42201FB48B00AD0198 /* RequestTableViewController.swift in Sources */,
+				173D7D4C201FC5DA00AD0198 /* CreateRequestViewController.swift in Sources */,
+				173D7D4A201FC34C00AD0198 /* RequestViewController.swift in Sources */,
 				174A1F19201BEF7400774A34 /* ServiceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

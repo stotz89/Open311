@@ -19,7 +19,7 @@ class CategoryViewController: UITableViewController {
     let mUrlChicago = "http://test311api.cityofchicago.org/open311/v2/requests.json?jurisdiction_id=cityofchicago.org"
     
     var mServiceCategoryArray : [ServiceModel] = [ServiceModel]()
-    var mRequests : [RequestModel] = [RequestModel]()
+    //var mRequests : [RequestModel] = [RequestModel]()
     
     
     override func viewDidLoad() {
@@ -57,9 +57,19 @@ class CategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Button pressed")
         
+        performSegue(withIdentifier: "showRequests", sender: self)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // MARK: Prepare for Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! RequestTableViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.service = mServiceCategoryArray[indexPath.row]
+        }
+    }
     
     
     //MARK: HTTP Requests
@@ -114,34 +124,7 @@ class CategoryViewController: UITableViewController {
         }
     }
     
-    func parseRequestJson(json : JSON) {
-        for (_, req) in json {
-            
-            let requestModel = RequestModel()
-            
-            //print(req)
-            if req["status"].string != nil {
-                requestModel.status = req["status"].string!
-            }
-            if req["description"].string != nil {
-                requestModel.description = req["description"].string!
-            }
-            if req["adress"].string != nil {
-                requestModel.address = req["address"].string!
-            }
-            if req["lat"].string != nil {
-                requestModel.lat = req["lat"].string!
-            }
-            if req["long"].string != nil {
-                requestModel.long = req["long"].string!
-            }
-            if req["service_name"].string != nil {
-                requestModel.serviceName = req["service_name"].string!
-            }
-            
-            mRequests.append(requestModel)
-        }
-    }
+    
 }
 
 //MARK: Search Bar Methods
