@@ -8,11 +8,17 @@
 
 class RequestModel {
     
+    var serviceRequestId : String = ""
     var status : String = ""
+    var statusNotes : String = ""
+    var serviceName : String = ""
+    var serviceCode : String = ""
+    var RequestDescription : String = ""
+    var requestDateTime : String = ""
+    var updatedDateTime : String = ""
+    var address : String = ""
     var long : String = ""
     var lat : String = ""
-    var address : String = ""
-    var serviceName : String = ""
-    var description : String = ""
+    var mediaUrl : String = ""
     
 }

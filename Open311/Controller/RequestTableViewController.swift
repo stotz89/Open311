@@ -24,7 +24,8 @@ class RequestTableViewController: UITableViewController {
         super.viewDidLoad()
         SVProgressHUD.show()
         requestTableView.register(UINib(nibName: "ServiceRequestCell", bundle: nil), forCellReuseIdentifier: "serviceRequestCell")
-
+        requestTableView.rowHeight = 80
+        
         // First we need to concatenate the service code with the static URL in order to fire the request.
         if service != nil {
             mUrlBostonRequest += (service?.serviceCode)!
@@ -44,8 +45,9 @@ class RequestTableViewController: UITableViewController {
         
         let requestCell = tableView.dequeueReusableCell(withIdentifier: "serviceRequestCell", for: indexPath) as! ServiceRequestCell
         
-        requestCell.serviceId.text = mRequests[indexPath.row].serviceName
-        requestCell.serviceDescription.text = mRequests[indexPath.row].description
+        requestCell.adressLabel.text = mRequests[indexPath.row].address
+        requestCell.serviceDescription.text = mRequests[indexPath.row].RequestDescription
+        requestCell.serviceStatus.text = mRequests[indexPath.row].status
         
         return requestCell
     }
@@ -77,24 +79,14 @@ class RequestTableViewController: UITableViewController {
         } else if segue.identifier == "showRequest" {
             let destinationVC = segue.destination as! RequestViewController
             
-            if let indexPath = tableView.indexPathForSelectedRow?.row {
+            if let indexPath = tableView.indexPathForSelectedRow {
                 
-                print(indexPath)
-                print(mRequests[indexPath].serviceName)
-                let model : RequestModel = mRequests[indexPath]
-                destinationVC.requestId = "Abc"
-                //destinationVC.requestIdLabel.text = mRequests[indexPath].serviceName
-                //if mRequests[indexPath].serviceName != nil {
-                    //destinationVC.requestIdLabel.text = mRequests[indexPath].serviceName
-                //}
+                destinationVC.requestId = mRequests[indexPath.row].serviceName
+                destinationVC.requestDescription = mRequests[indexPath.row].RequestDescription
+                destinationVC.lat = mRequests[indexPath.row].lat
+                destinationVC.long = mRequests[indexPath.row].long
+                destinationVC.requestStatus = mRequests[indexPath.row].status
                 
-                
-                //destinationVC.requestDescriptionLabel.text = mRequests[indexPath].description
-            
-                //destinationVC.requestDateLabel.text = mRequests[indexPath].lat
-                
-                //destinationVC.requestTimeLabel.text = mRequests[indexPath].long
-                //destinationVC.requestStatusLabel.text = mRequests[indexPath].status
             }
         }
     }
@@ -127,14 +119,31 @@ class RequestTableViewController: UITableViewController {
             
             let requestModel = RequestModel()
             
-            //print(req)
+            if req["service_request_id"].string != nil {
+                requestModel.serviceRequestId = req["service_request_id"].string!
+            }
             if req["status"].string != nil {
                 requestModel.status = req["status"].string!
             }
-            if req["description"].string != nil {
-                requestModel.description = req["description"].string!
+            if req["status_notes"].string != nil {
+                requestModel.statusNotes = req["status_notes"].string!
             }
-            if req["adress"].string != nil {
+            if req["service_name"].string != nil {
+                requestModel.serviceName = req["service_name"].string!
+            }
+            if req["service_code"].string != nil {
+                requestModel.serviceCode = req["service_code"].string!
+            }
+            if req["description"].string != nil {
+                requestModel.RequestDescription = req["description"].string!
+            }
+            if req["requested_datetime"].string != nil {
+                requestModel.requestDateTime = req["requested_datetime"].string!
+            }
+            if req["updated_datetime"].string != nil {
+                requestModel.updatedDateTime = req["updated_datetime"].string!
+            }
+            if req["address"].string != nil {
                 requestModel.address = req["address"].string!
             }
             if req["lat"].string != nil {
@@ -143,8 +152,8 @@ class RequestTableViewController: UITableViewController {
             if req["long"].string != nil {
                 requestModel.long = req["long"].string!
             }
-            if req["service_name"].string != nil {
-                requestModel.serviceName = req["service_name"].string!
+            if req["media_url"].string != nil {
+                requestModel.mediaUrl = req["media_url"].string!
             }
             
             mRequests.append(requestModel)

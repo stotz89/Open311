@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -76,12 +77,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="koE-Pn-OYn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QxM-Nc-qSV" customClass="createRequest">
-                            <connections>
-                                <action selector="addButtonPressed:" destination="ibZ-cD-pyT" id="Lfi-Ig-7kI"/>
-                                <segue destination="7AK-Oy-6BL" kind="show" id="Fv0-wj-aRd"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="QxM-Nc-qSV" customClass="createRequest">
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="ibZ-cD-pyT" id="Lfi-Ig-7kI"/>
+                                    <segue destination="7AK-Oy-6BL" kind="show" id="Fv0-wj-aRd"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="RZr-uz-UHT"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="requestTableView" destination="TnW-t8-BWd" id="0LC-Us-qVJ"/>

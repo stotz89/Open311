@@ -18,15 +18,26 @@ class RequestViewController: UIViewController {
     
     var requestId : String?
     var requestStatus : String?
+    var requestStatusNotes : String?
+    var serviceName : String?
+    var serviceCode : String?
     var requestDescription : String?
-    var requestDate : String?
-    var requestTime : String?
+    var requestedDateTime : String?
+    var updatedDateTime : String?
+    var adress : String?
+    var lat : String?
+    var long : String?
+    var mediaUrl : String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         requestIdLabel.text = requestId
         requestStatusLabel.text = requestStatus
+        requestDescriptionLabel.text = requestDescription
+        requestDateLabel.text = requestedDateTime
+        requestTimeLabel.text = updatedDateTime
 
         // Do any additional setup after loading the view.
     }

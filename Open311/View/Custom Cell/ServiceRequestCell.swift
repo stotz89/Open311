@@ -10,8 +10,10 @@ import UIKit
 
 class ServiceRequestCell: UITableViewCell {
 
-    @IBOutlet weak var serviceId: UILabel!
+    
+    @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var serviceDescription: UILabel!
+    @IBOutlet weak var serviceStatus: UILabel!
     
     
     override func awakeFromNib() {
