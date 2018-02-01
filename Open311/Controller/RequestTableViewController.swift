@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class RequestTableViewController: UITableViewController {
     
@@ -21,7 +22,7 @@ class RequestTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SVProgressHUD.show()
         requestTableView.register(UINib(nibName: "ServiceRequestCell", bundle: nil), forCellReuseIdentifier: "serviceRequestCell")
 
         // First we need to concatenate the service code with the static URL in order to fire the request.
@@ -76,12 +77,24 @@ class RequestTableViewController: UITableViewController {
         } else if segue.identifier == "showRequest" {
             let destinationVC = segue.destination as! RequestViewController
             
-            if let indexPath = tableView.indexPathForSelectedRow {
-                destinationVC.requestIdLabel.text = mRequests[indexPath.row].serviceName
-                destinationVC.requestDescriptionLabel.text = mRequests[indexPath.row].description
-                destinationVC.requestDateLabel.text = mRequests[indexPath.row].lat
-                destinationVC.requestTimeLabel.text = mRequests[indexPath.row].long
-                destinationVC.requestStatusLabel.text = mRequests[indexPath.row].status
+            if let indexPath = tableView.indexPathForSelectedRow?.row {
+                
+                print(indexPath)
+                print(mRequests[indexPath].serviceName)
+                let model : RequestModel = mRequests[indexPath]
+                destinationVC.requestId = "Abc"
+                //destinationVC.requestIdLabel.text = mRequests[indexPath].serviceName
+                //if mRequests[indexPath].serviceName != nil {
+                    //destinationVC.requestIdLabel.text = mRequests[indexPath].serviceName
+                //}
+                
+                
+                //destinationVC.requestDescriptionLabel.text = mRequests[indexPath].description
+            
+                //destinationVC.requestDateLabel.text = mRequests[indexPath].lat
+                
+                //destinationVC.requestTimeLabel.text = mRequests[indexPath].long
+                //destinationVC.requestStatusLabel.text = mRequests[indexPath].status
             }
         }
     }
@@ -102,6 +115,7 @@ class RequestTableViewController: UITableViewController {
             else {
                 print(response.result.error!)
             }
+            SVProgressHUD.dismiss()
             self.requestTableView.reloadData()
             print("Done with HTTP")
         }

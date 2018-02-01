@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class CategoryViewController: UITableViewController {
 
@@ -30,7 +31,8 @@ class CategoryViewController: UITableViewController {
         //categoryTableView.dataSource = self
         
         categoryTableView.register(UINib(nibName: "ServiceCategoryCell", bundle: nil), forCellReuseIdentifier: "serviceCategoryCell")
-        
+        categoryTableView.rowHeight = 80
+        SVProgressHUD.show()
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,6 +90,7 @@ class CategoryViewController: UITableViewController {
             else {
                 print(response.result.error!)
             }
+            SVProgressHUD.dismiss()
             self.categoryTableView.reloadData()
             print("Done with HTTP")
         }

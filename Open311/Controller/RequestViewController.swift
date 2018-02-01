@@ -16,10 +16,17 @@ class RequestViewController: UIViewController {
     @IBOutlet weak var requestDateLabel: UILabel!
     @IBOutlet weak var requestTimeLabel: UILabel!
     
+    var requestId : String?
+    var requestStatus : String?
+    var requestDescription : String?
+    var requestDate : String?
+    var requestTime : String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestIdLabel.text = requestId
+        requestStatusLabel.text = requestStatus
 
         // Do any additional setup after loading the view.
     }

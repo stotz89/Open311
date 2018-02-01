@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import SwiftIconFont
 
 class CreateRequestViewController: UIViewController {
+    
 
+    @IBOutlet weak var iconLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        iconLabel.font = UIFont.icon(from: .FontAwesome, ofSize: 50.0)
+        iconLabel.text = String.fontAwesomeIcon("twitter")
+        
         // Do any additional setup after loading the view.
     }
 
