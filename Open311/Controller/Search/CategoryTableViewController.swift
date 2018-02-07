@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 
-class CategoryViewController: UITableViewController {
+class CategoryTableViewController: UITableViewController {
 
     @IBOutlet weak var categoryTableView: UITableView!
     
@@ -129,7 +129,7 @@ class CategoryViewController: UITableViewController {
 }
 
 //MARK: Search Bar Methods
-extension CategoryViewController: UISearchBarDelegate {
+extension CategoryTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         

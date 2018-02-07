@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17210658202BAAAC00FFCA61 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17210657202BAAAC00FFCA61 /* TestViewController.swift */; };
+		1721065A202BB8CF00FFCA61 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17210659202BB8CF00FFCA61 /* FavoriteTableViewController.swift */; };
 		173D7D42201FB48B00AD0198 /* RequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */; };
 		173D7D47201FBEF100AD0198 /* ServiceRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D45201FBEF100AD0198 /* ServiceRequestCell.swift */; };
 		173D7D48201FBEF100AD0198 /* ServiceRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 173D7D46201FBEF100AD0198 /* ServiceRequestCell.xib */; };
@@ -18,7 +18,7 @@
 		174A1F1B201BF05000774A34 /* ServiceCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1F1A201BF05000774A34 /* ServiceCategoryCell.swift */; };
 		174A1F1D201BF05800774A34 /* ServiceCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1F1C201BF05800774A34 /* ServiceCategoryCell.xib */; };
 		1769B3A8201BEDFD001B1FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769B3A7201BEDFD001B1FC4 /* AppDelegate.swift */; };
-		1769B3AA201BEDFD001B1FC4 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769B3A9201BEDFD001B1FC4 /* CategoryViewController.swift */; };
+		1769B3AA201BEDFD001B1FC4 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769B3A9201BEDFD001B1FC4 /* CategoryTableViewController.swift */; };
 		1769B3AD201BEDFD001B1FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1769B3AB201BEDFD001B1FC4 /* Main.storyboard */; };
 		1769B3AF201BEDFD001B1FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1769B3AE201BEDFD001B1FC4 /* Assets.xcassets */; };
 		1769B3B2201BEDFD001B1FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1769B3B0201BEDFD001B1FC4 /* LaunchScreen.storyboard */; };
@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		17210657202BAAAC00FFCA61 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		17210659202BB8CF00FFCA61 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewController.swift; sourceTree = "<group>"; };
 		173D7D45201FBEF100AD0198 /* ServiceRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestCell.swift; sourceTree = "<group>"; };
 		173D7D46201FBEF100AD0198 /* ServiceRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRequestCell.xib; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		174A1F1C201BF05800774A34 /* ServiceCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceCategoryCell.xib; sourceTree = "<group>"; };
 		1769B3A4201BEDFD001B1FC4 /* Open311.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Open311.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1769B3A7201BEDFD001B1FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1769B3A9201BEDFD001B1FC4 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		1769B3A9201BEDFD001B1FC4 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		1769B3AC201BEDFD001B1FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1769B3AE201BEDFD001B1FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1769B3B1201BEDFD001B1FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,15 +77,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		174A1F0E201BEEDC00774A34 /* Controller */ = {
+		1721065B202BB90200FFCA61 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				1769B3A7201BEDFD001B1FC4 /* AppDelegate.swift */,
-				1769B3A9201BEDFD001B1FC4 /* CategoryViewController.swift */,
+				1769B3A9201BEDFD001B1FC4 /* CategoryTableViewController.swift */,
 				173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */,
 				173D7D49201FC34C00AD0198 /* RequestViewController.swift */,
 				173D7D4B201FC5DA00AD0198 /* CreateRequestViewController.swift */,
-				17210657202BAAAC00FFCA61 /* TestViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		1721065C202BB92100FFCA61 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				17210659202BB8CF00FFCA61 /* FavoriteTableViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		174A1F0E201BEEDC00774A34 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1721065C202BB92100FFCA61 /* Favorites */,
+				1721065B202BB90200FFCA61 /* Search */,
+				1769B3A7201BEDFD001B1FC4 /* AppDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,11 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17210658202BAAAC00FFCA61 /* TestViewController.swift in Sources */,
-				1769B3AA201BEDFD001B1FC4 /* CategoryViewController.swift in Sources */,
+				1769B3AA201BEDFD001B1FC4 /* CategoryTableViewController.swift in Sources */,
 				1769B3A8201BEDFD001B1FC4 /* AppDelegate.swift in Sources */,
 				173D7D47201FBEF100AD0198 /* ServiceRequestCell.swift in Sources */,
 				174A1F1B201BF05000774A34 /* ServiceCategoryCell.swift in Sources */,
+				1721065A202BB8CF00FFCA61 /* FavoriteTableViewController.swift in Sources */,
 				174A1F17201BEF6C00774A34 /* RequestModel.swift in Sources */,
 				173D7D42201FB48B00AD0198 /* RequestTableViewController.swift in Sources */,
 				173D7D4C201FC5DA00AD0198 /* CreateRequestViewController.swift in Sources */,

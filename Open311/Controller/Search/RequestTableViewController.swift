@@ -128,11 +128,7 @@ class RequestTableViewController: UITableViewController {
                 destinationVC.mediaData = mRequests[indexPath.row].mediaData
                 
             }
-        } else if segue.identifier == "showTest" {
-            
-            let destinationVC = segue.destination as! TestViewController
-            
-        }
+        } 
     }
     
     // MARK: Http-Call
