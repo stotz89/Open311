@@ -14,6 +14,7 @@ class ServiceRequestCell: UITableViewCell {
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var serviceDescription: UILabel!
     @IBOutlet weak var serviceStatus: UILabel!
+    @IBOutlet weak var mediaUrl: UIImageView!
     
     
     override func awakeFromNib() {

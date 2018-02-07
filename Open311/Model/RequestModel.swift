@@ -6,6 +6,9 @@
 //  Copyright © 2018 Philipp Stotz. All rights reserved.
 //
 
+import Alamofire
+import AlamofireImage
+
 class RequestModel {
     
     var serviceRequestId : String = ""
@@ -14,11 +17,12 @@ class RequestModel {
     var serviceName : String = ""
     var serviceCode : String = ""
     var RequestDescription : String = ""
-    var requestDateTime : String = ""
-    var updatedDateTime : String = ""
+    var requestDateTime : Date?
+    var updatedDateTime : Date?
     var address : String = ""
-    var long : String = ""
-    var lat : String = ""
+    var long : Double?
+    var lat : Double?
     var mediaUrl : String = ""
+    var mediaData : Image?
     
 }

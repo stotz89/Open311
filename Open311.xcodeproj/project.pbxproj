@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17210658202BAAAC00FFCA61 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17210657202BAAAC00FFCA61 /* TestViewController.swift */; };
 		173D7D42201FB48B00AD0198 /* RequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */; };
 		173D7D47201FBEF100AD0198 /* ServiceRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D7D45201FBEF100AD0198 /* ServiceRequestCell.swift */; };
 		173D7D48201FBEF100AD0198 /* ServiceRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 173D7D46201FBEF100AD0198 /* ServiceRequestCell.xib */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17210657202BAAAC00FFCA61 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableViewController.swift; sourceTree = "<group>"; };
 		173D7D45201FBEF100AD0198 /* ServiceRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestCell.swift; sourceTree = "<group>"; };
 		173D7D46201FBEF100AD0198 /* ServiceRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceRequestCell.xib; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				173D7D41201FB48B00AD0198 /* RequestTableViewController.swift */,
 				173D7D49201FC34C00AD0198 /* RequestViewController.swift */,
 				173D7D4B201FC5DA00AD0198 /* CreateRequestViewController.swift */,
+				17210657202BAAAC00FFCA61 /* TestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Open311/Pods-Open311-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -235,6 +239,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -284,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17210658202BAAAC00FFCA61 /* TestViewController.swift in Sources */,
 				1769B3AA201BEDFD001B1FC4 /* CategoryViewController.swift in Sources */,
 				1769B3A8201BEDFD001B1FC4 /* AppDelegate.swift in Sources */,
 				173D7D47201FBEF100AD0198 /* ServiceRequestCell.swift in Sources */,
@@ -433,6 +439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RMWW3RNA9G;
 				INFOPLIST_FILE = Open311/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.philippstotz.Open311;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,6 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RMWW3RNA9G;
 				INFOPLIST_FILE = Open311/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.philippstotz.Open311;
 				PRODUCT_NAME = "$(TARGET_NAME)";

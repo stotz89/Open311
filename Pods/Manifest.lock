@@ -1,21 +1,25 @@
 PODS:
   - Alamofire (4.6.0)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
   - SVProgressHUD (2.2.2)
   - SwiftIconFont (2.7.3)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - SVProgressHUD
   - SwiftIconFont
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   SwiftIconFont: ebd8ee931a1e7072b61a87aec53f3a0786ef7f2b
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: ebf0c46fd9dd1518acc9d0a587377d502e44974d
+PODFILE CHECKSUM: 23e4fa6478ad8be35316fd947948a56dd2d660ce
 
 COCOAPODS: 1.4.0

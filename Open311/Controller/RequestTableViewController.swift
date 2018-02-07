@@ -8,8 +8,20 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import SwiftyJSON
+import SwiftIconFont
 import SVProgressHUD
+
+public enum Fonts: String {
+    case FontAwesome = "FontAwesome"
+    case Iconic = "open-iconic"
+    case Ionicon = "Ionicons"
+    case Octicon = "octicons"
+    case Themify = "themify"
+    case MapIcon = "map-icons"
+    case MaterialIcon = "MaterialIcons-Regular"
+}
 
 class RequestTableViewController: UITableViewController {
     
@@ -24,7 +36,7 @@ class RequestTableViewController: UITableViewController {
         super.viewDidLoad()
         SVProgressHUD.show()
         requestTableView.register(UINib(nibName: "ServiceRequestCell", bundle: nil), forCellReuseIdentifier: "serviceRequestCell")
-        requestTableView.rowHeight = 80
+        requestTableView.rowHeight = 140
         
         // First we need to concatenate the service code with the static URL in order to fire the request.
         if service != nil {
@@ -33,6 +45,8 @@ class RequestTableViewController: UITableViewController {
         } else {
             // TODO: Unable to fetch data.
         }
+        
+        
         
     }
     
@@ -47,7 +61,30 @@ class RequestTableViewController: UITableViewController {
         
         requestCell.adressLabel.text = mRequests[indexPath.row].address
         requestCell.serviceDescription.text = mRequests[indexPath.row].RequestDescription
-        requestCell.serviceStatus.text = mRequests[indexPath.row].status
+        
+        if mRequests[indexPath.row].status == "open" {
+            //print("open")
+            //requestCell.serviceStatus.text = "fa:lock-open"
+            requestCell.serviceStatus.font = UIFont.icon(from: .Ionicon, ofSize: 20.0)
+            requestCell.serviceStatus.text = String.fontIonIcon("gear-a")
+            
+        } else if mRequests[indexPath.row].status == "closed" {
+            //print("closed")
+            //requestCell.serviceStatus.text = "fa:lock-closed"
+            requestCell.serviceStatus.font = UIFont.icon(from: .Ionicon, ofSize: 20.0)
+            requestCell.serviceStatus.text = String.fontIonIcon("checkmark-round")
+        }
+        
+        //requestCell.serviceStatus.parseIcon()
+        //print(mRequests[indexPath.row].mediaUrl)
+        requestCell.mediaUrl.setIcon(from: .Ionicon, code: "ios-camera", textColor: .black, backgroundColor: .clear, size: nil)
+        if mRequests[indexPath.row].mediaUrl != "" {
+            Alamofire.request(mRequests[indexPath.row].mediaUrl).responseImage {
+                response in
+                requestCell.mediaUrl.image = response.result.value
+                self.mRequests[indexPath.row].mediaData = response.result.value
+            }
+        }
         
         return requestCell
     }
@@ -73,7 +110,7 @@ class RequestTableViewController: UITableViewController {
         
         if segue.identifier == "createRequest" {
             
-            let destinationVC = segue.destination as! CreateRequestViewController
+            //let destinationVC = segue.destination as! CreateRequestViewController
             
             
         } else if segue.identifier == "showRequest" {
@@ -83,11 +120,18 @@ class RequestTableViewController: UITableViewController {
                 
                 destinationVC.requestId = mRequests[indexPath.row].serviceName
                 destinationVC.requestDescription = mRequests[indexPath.row].RequestDescription
+                destinationVC.requestedDateTime = mRequests[indexPath.row].requestDateTime
+                destinationVC.updatedDateTime = mRequests[indexPath.row].updatedDateTime
                 destinationVC.lat = mRequests[indexPath.row].lat
                 destinationVC.long = mRequests[indexPath.row].long
                 destinationVC.requestStatus = mRequests[indexPath.row].status
+                destinationVC.mediaData = mRequests[indexPath.row].mediaData
                 
             }
+        } else if segue.identifier == "showTest" {
+            
+            let destinationVC = segue.destination as! TestViewController
+            
         }
     }
     
@@ -108,6 +152,7 @@ class RequestTableViewController: UITableViewController {
                 print(response.result.error!)
             }
             SVProgressHUD.dismiss()
+            
             self.requestTableView.reloadData()
             print("Done with HTTP")
         }
@@ -118,6 +163,7 @@ class RequestTableViewController: UITableViewController {
         for (_, req) in json {
             
             let requestModel = RequestModel()
+            let dateFormatter = ISO8601DateFormatter()
             
             if req["service_request_id"].string != nil {
                 requestModel.serviceRequestId = req["service_request_id"].string!
@@ -138,20 +184,20 @@ class RequestTableViewController: UITableViewController {
                 requestModel.RequestDescription = req["description"].string!
             }
             if req["requested_datetime"].string != nil {
-                requestModel.requestDateTime = req["requested_datetime"].string!
+                requestModel.requestDateTime = dateFormatter.date(from: req["requested_datetime"].string!)
             }
             if req["updated_datetime"].string != nil {
-                requestModel.updatedDateTime = req["updated_datetime"].string!
+                requestModel.updatedDateTime = dateFormatter.date(from: req["updated_datetime"].string!)
             }
             if req["address"].string != nil {
                 requestModel.address = req["address"].string!
             }
-            if req["lat"].string != nil {
-                requestModel.lat = req["lat"].string!
-            }
-            if req["long"].string != nil {
-                requestModel.long = req["long"].string!
-            }
+            //if req["lat"].doubleValue != nil {
+                requestModel.lat = req["lat"].doubleValue
+            //}
+            //if req["long"].doubleValue != nil {
+                requestModel.long = req["long"].doubleValue
+            //}
             if req["media_url"].string != nil {
                 requestModel.mediaUrl = req["media_url"].string!
             }

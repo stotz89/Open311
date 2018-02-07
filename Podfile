@@ -8,6 +8,7 @@ target 'Open311' do
   # Pods for Open311
 pod 'SwiftyJSON'
 pod 'Alamofire'
+pod 'AlamofireImage'
 pod 'SwiftIconFont'
 pod 'SVProgressHUD'
 end

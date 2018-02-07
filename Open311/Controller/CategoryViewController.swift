@@ -27,8 +27,6 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         getOpen311Services()
-        //categoryTableView.delegate = self
-        //categoryTableView.dataSource = self
         
         categoryTableView.register(UINib(nibName: "ServiceCategoryCell", bundle: nil), forCellReuseIdentifier: "serviceCategoryCell")
         categoryTableView.rowHeight = 80
