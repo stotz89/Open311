@@ -80,6 +80,7 @@ class CategoryTableViewController: UITableViewController {
         Alamofire.request(mUrlBostonServices, method: .get).responseJSON {
             response in
             if response.result.isSuccess {
+                print("Success!")
                 let resJson : JSON = JSON(response.result.value!)
                 print("Parsing JSON.....")
                 self.parseServiceJson(json: resJson)

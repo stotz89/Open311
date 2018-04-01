@@ -2,6 +2,11 @@ PODS:
   - Alamofire (4.6.0)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
+  - Realm (3.1.0):
+    - Realm/Headers (= 3.1.0)
+  - Realm/Headers (3.1.0)
+  - RealmSwift (3.1.0):
+    - Realm (= 3.1.0)
   - SVProgressHUD (2.2.2)
   - SwiftIconFont (2.7.3)
   - SwiftyJSON (4.0.0)
@@ -9,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - RealmSwift
   - SVProgressHUD
   - SwiftIconFont
   - SwiftyJSON
@@ -16,10 +22,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
+  RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   SwiftIconFont: ebd8ee931a1e7072b61a87aec53f3a0786ef7f2b
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 23e4fa6478ad8be35316fd947948a56dd2d660ce
+PODFILE CHECKSUM: 3e30507ad22b88d7eaef544e4306b5531a2291c9
 
 COCOAPODS: 1.4.0

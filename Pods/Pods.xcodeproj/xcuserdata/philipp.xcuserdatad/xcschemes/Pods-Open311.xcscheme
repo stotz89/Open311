@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A6C2FAFA0F58757793E4A5716B05E04"
+               BlueprintIdentifier = "1F5A924C2DB54ED13C61C0A64BF31B1B"
                BuildableName = "Pods_Open311.framework"
                BlueprintName = "Pods-Open311"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A6C2FAFA0F58757793E4A5716B05E04"
+            BlueprintIdentifier = "1F5A924C2DB54ED13C61C0A64BF31B1B"
             BuildableName = "Pods_Open311.framework"
             BlueprintName = "Pods-Open311"
             ReferencedContainer = "container:Pods.xcodeproj">
