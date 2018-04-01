@@ -28,20 +28,25 @@ class RequestTableViewController: UITableViewController {
     @IBOutlet var requestTableView: UITableView!
     
     var service : ServiceModel?
-    var mUrlBostonRequest : String = "https://311.boston.gov/open311/v2/requests.json?service_code="
+    // var mUrlBostonRequest : String = "https://311.boston.gov/open311/v2/requests.json?service_code="
+    //var mUrlTorontoRequest : String = "https://secure.toronto.ca/open311test/ws/requests.json?jurisdiction_id=toronto.ca&service_code="
+    //var mUrlKoelnProd : String = "https://sags-uns.stadt-koeln.de/georeport/v2/requests.json?jurisdiction_id=stadt-koeln.de&service_code="
+    var mUrlSanFran : String = "http://mobile311.sfgov.org/open311/v2/requests.json?jurisdiction_id=sfgov.org&service_code="
     
     var mRequests : [RequestModel] = [RequestModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.show()
+        
         requestTableView.register(UINib(nibName: "ServiceRequestCell", bundle: nil), forCellReuseIdentifier: "serviceRequestCell")
         requestTableView.rowHeight = 140
         
         // First we need to concatenate the service code with the static URL in order to fire the request.
         if service != nil {
-            mUrlBostonRequest += (service?.serviceCode)!
+            SVProgressHUD.show()
+            mUrlSanFran += (service?.serviceCode)!
             getOpen311Requests()
+            SVProgressHUD.dismiss()
         } else {
             // TODO: Unable to fetch data.
         }
@@ -73,6 +78,11 @@ class RequestTableViewController: UITableViewController {
             //requestCell.serviceStatus.text = "fa:lock-closed"
             requestCell.serviceStatus.font = UIFont.icon(from: .Ionicon, ofSize: 20.0)
             requestCell.serviceStatus.text = String.fontIonIcon("checkmark-round")
+        } else if mRequests[indexPath.row].status == "submitted" {
+            //print("closed")
+            //requestCell.serviceStatus.text = "fa:lock-closed"
+            requestCell.serviceStatus.font = UIFont.icon(from: .Ionicon, ofSize: 20.0)
+            requestCell.serviceStatus.text = String.fontIonIcon("arrow-right-c")
         }
         
         //requestCell.serviceStatus.parseIcon()
@@ -118,15 +128,8 @@ class RequestTableViewController: UITableViewController {
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 
-                destinationVC.requestId = mRequests[indexPath.row].serviceName
-                destinationVC.requestDescription = mRequests[indexPath.row].RequestDescription
-                destinationVC.requestedDateTime = mRequests[indexPath.row].requestDateTime
-                destinationVC.updatedDateTime = mRequests[indexPath.row].updatedDateTime
-                destinationVC.lat = mRequests[indexPath.row].lat
-                destinationVC.long = mRequests[indexPath.row].long
-                destinationVC.requestStatus = mRequests[indexPath.row].status
-                destinationVC.mediaData = mRequests[indexPath.row].mediaData
-                
+                destinationVC.request = mRequests[indexPath.row]
+
             }
         } 
     }
@@ -134,9 +137,9 @@ class RequestTableViewController: UITableViewController {
     // MARK: Http-Call
     func getOpen311Requests() {
         print("Fire for Requests.....")
-        print(mUrlBostonRequest)
+        print(mUrlSanFran)
         
-        Alamofire.request(mUrlBostonRequest, method: .get).responseJSON {
+        Alamofire.request(mUrlSanFran, method: .get).responseJSON {
             response in
             if response.result.isSuccess {
                 let resJson : JSON = JSON(response.result.value!)
@@ -147,7 +150,7 @@ class RequestTableViewController: UITableViewController {
             else {
                 print(response.result.error!)
             }
-            SVProgressHUD.dismiss()
+            
             
             self.requestTableView.reloadData()
             print("Done with HTTP")
@@ -161,42 +164,42 @@ class RequestTableViewController: UITableViewController {
             let requestModel = RequestModel()
             let dateFormatter = ISO8601DateFormatter()
             
-            if req["service_request_id"].string != nil {
-                requestModel.serviceRequestId = req["service_request_id"].string!
-            }
-            if req["status"].string != nil {
-                requestModel.status = req["status"].string!
-            }
-            if req["status_notes"].string != nil {
-                requestModel.statusNotes = req["status_notes"].string!
-            }
-            if req["service_name"].string != nil {
-                requestModel.serviceName = req["service_name"].string!
-            }
-            if req["service_code"].string != nil {
-                requestModel.serviceCode = req["service_code"].string!
-            }
-            if req["description"].string != nil {
-                requestModel.RequestDescription = req["description"].string!
-            }
+            //if req["service_request_id"].string != nil {
+                requestModel.serviceRequestId = req["service_request_id"].string ?? "Not available"
+            //}
+            //if req["status"].string != nil {
+                requestModel.status = req["status"].string ?? "Not available"
+            //}
+            //if req["status_notes"].string != nil {
+                requestModel.statusNotes = req["status_notes"].string ?? "Not available"
+            //}
+            //if req["service_name"].string != nil {
+                requestModel.serviceName = req["service_name"].string ?? "Not available"
+            //}
+            //if req["service_code"].string != nil {
+                requestModel.serviceCode = req["service_code"].string ?? "Not available"
+            //}
+            //if req["description"].string != nil {
+                requestModel.RequestDescription = req["description"].string ?? "Not available"
+            //}
             if req["requested_datetime"].string != nil {
                 requestModel.requestDateTime = dateFormatter.date(from: req["requested_datetime"].string!)
             }
             if req["updated_datetime"].string != nil {
                 requestModel.updatedDateTime = dateFormatter.date(from: req["updated_datetime"].string!)
             }
-            if req["address"].string != nil {
-                requestModel.address = req["address"].string!
-            }
+            //if req["address"].string != nil {
+                requestModel.address = req["address"].string ?? "Not available"
+            //}
             //if req["lat"].doubleValue != nil {
                 requestModel.lat = req["lat"].doubleValue
             //}
             //if req["long"].doubleValue != nil {
                 requestModel.long = req["long"].doubleValue
             //}
-            if req["media_url"].string != nil {
-                requestModel.mediaUrl = req["media_url"].string!
-            }
+            //if req["media_url"].string != nil {
+                requestModel.mediaUrl = req["media_url"].string ?? ""
+            //}
             
             mRequests.append(requestModel)
         }

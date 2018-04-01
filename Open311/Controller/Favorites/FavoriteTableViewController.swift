@@ -7,11 +7,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavoriteTableViewController: UITableViewController {
-
+    
+    
+    @IBOutlet var favoriteTableView: UITableView!
+    
+    var mRequests: Results<RequestModelRealm>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            let realm = try Realm()
+            mRequests = realm.objects(RequestModelRealm.self)
+        } catch {
+            print("Error initialising Realm, \(error) ")
+        }
+        
+        favoriteTableView.register(UINib(nibName: "ServiceRequestCell", bundle: nil), forCellReuseIdentifier: "serviceRequestCell")
+        favoriteTableView.rowHeight = 140
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,25 +43,28 @@ class FavoriteTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    /*override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+        return requests?.count ?? 1
+    }*/
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return mRequests?.count ?? 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        
+        let requestCell = tableView.dequeueReusableCell(withIdentifier: "serviceRequestCell", for: indexPath) as! ServiceRequestCell
+        
+        requestCell.adressLabel.text = mRequests?[indexPath.row].RequestDescription ?? "Not provided"
+        requestCell.serviceDescription.text = mRequests?[indexPath.row].RequestDescription ?? "Not provided"
+        
+        return requestCell
+        
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

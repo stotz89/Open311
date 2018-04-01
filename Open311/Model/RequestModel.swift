@@ -9,14 +9,14 @@
 import Alamofire
 import AlamofireImage
 
-class RequestModel {
+class RequestModel : RequestModelRealm {
     
-    var serviceRequestId : String = ""
+    //@objc dynamic var serviceRequestId : String = ""
     var status : String = ""
     var statusNotes : String = ""
-    var serviceName : String = ""
-    var serviceCode : String = ""
-    var RequestDescription : String = ""
+    /*@objc dynamic var serviceName : String = ""
+    @objc dynamic var serviceCode : String = ""
+    @objc dynamic var RequestDescription : String = ""*/
     var requestDateTime : Date?
     var updatedDateTime : Date?
     var address : String = ""

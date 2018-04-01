@@ -120,6 +120,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="2j9-nl-hTY"/>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="2Hy-Di-U1v" id="h68-Uq-Pcq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOS-Z0-qZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,10 +295,15 @@
                         <viewLayoutGuide key="safeArea" id="wvR-nM-ejF"/>
                     </view>
                     <navigationItem key="navigationItem" id="xyX-FO-zLU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="yHd-Mm-WBq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="yHd-Mm-WBq">
+                            <connections>
+                                <action selector="bookmarkButtonPressed:" destination="HiO-nj-iVo" id="VqH-dG-UTB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
+                        <outlet property="addToFavoritesButton" destination="yHd-Mm-WBq" id="1SP-My-BU5"/>
                         <outlet property="mediaUrlImage" destination="Dcx-kb-LIN" id="RzA-zp-rVO"/>
                         <outlet property="requestDescriptionLabel" destination="0Ty-W1-PuH" id="HIy-tj-1My"/>
                         <outlet property="requestIdLabel" destination="Qyv-uk-9Yz" id="6Gm-BM-e0u"/>

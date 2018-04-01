@@ -16,8 +16,11 @@ class CategoryTableViewController: UITableViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     
     
-    let mUrlBostonServices = "https://311.boston.gov/open311/v2/services.json"
-    let mUrlChicago = "http://test311api.cityofchicago.org/open311/v2/requests.json?jurisdiction_id=cityofchicago.org"
+    //let mUrlBostonServices = "https://311.boston.gov/open311/v2/services.json"
+    //let mUrlChicago = "http://test311api.cityofchicago.org/open311/v2/services.json"
+    //let mUrlToronto = "https://secure.toronto.ca/open311test/ws/services.json?jurisdiction_id=toronto.ca"
+    //let mUrlKoelnProd = "https://sags-uns.stadt-koeln.de/georeport/v2/services.json?jurisdiction_id=stadt-koeln.de"
+    let mUrlSanFran = "http://mobile311.sfgov.org/open311/v2/services.json?jurisdiction_id=sfgov.org"
     
     var mServiceCategoryArray : [ServiceModel] = [ServiceModel]()
     //var mRequests : [RequestModel] = [RequestModel]()
@@ -77,7 +80,7 @@ class CategoryTableViewController: UITableViewController {
     func getOpen311Services() {
         print("Fire for Services.....")
         
-        Alamofire.request(mUrlBostonServices, method: .get).responseJSON {
+        Alamofire.request(mUrlSanFran, method: .get).responseJSON {
             response in
             if response.result.isSuccess {
                 print("Success!")
