@@ -19,29 +19,35 @@ class RequestViewController: UIViewController {
     @IBAction func bookmarkButtonPressed(_ sender: Any) {
         
         print("Bookmark Button Pressed")
-        
-        // Persist the data in RealmDatabase
-        var requestPersist : RequestModelRealm = RequestModelRealm()
+        let requestPersist : RequestModelRealm = RequestModelRealm()
         requestPersist.serviceRequestId = self.request!.serviceRequestId
-        requestPersist.RequestDescription = self.request!.RequestDescription
-        requestPersist.serviceCode = self.request!.serviceCode
-        requestPersist.serviceName = self.request!.serviceName
-        
-        /*print(requestPersist.serviceRequestId)
-        print(requestPersist.RequestDescription)
-        print(requestPersist.serviceName)
-        print(requestPersist.serviceCode)*/
         
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.add(requestPersist)
+            // Is request already a favorite?
+            if isFavorite {
+                // delete as Favorite
+                // Persist the data in RealmDatabase
+                try realm.write {
+                    realm.delete(realm.objects(RequestModelRealm.self).filter("serviceRequestId=%@", requestPersist.serviceRequestId))
+                    addToFavoritesButton.tintColor = UIColor.blue
+                    isFavorite = false
+                }
+            } else {
+                // add as Favorite
+                // Persist the data in RealmDatabase
+                try realm.write {
+                    realm.add(requestPersist)
+                    addToFavoritesButton.tintColor = UIColor.green
+                    isFavorite = true
+                }
             }
+            
         } catch {
             print("Error initialising Realm, \(error) ")
         }
-        
     }
+    
     
     @IBOutlet weak var requestLocationMap: MKMapView!
     @IBOutlet weak var mediaUrlImage: UIImageView!
@@ -52,12 +58,19 @@ class RequestViewController: UIViewController {
     @IBOutlet weak var updatedDateLabel: UILabel!
     
     var request : RequestModel?
+    var isFavorite : Bool = false
     
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        isFavorite = checkIfRequestIsAlreadyFavorite()
+        
+        if isFavorite {
+            addToFavoritesButton.tintColor = UIColor.green
+        } else {
+            addToFavoritesButton.tintColor = UIColor.blue
+        }
         
         mediaUrlImage.image = request!.mediaData
         requestIdLabel.text = request!.serviceRequestId
@@ -135,6 +148,23 @@ class RequestViewController: UIViewController {
         dateFormatter.dateStyle = .medium
         return dateFormatter.string(from: date)
         
+    }
+    
+    func checkIfRequestIsAlreadyFavorite() -> Bool {
+        
+        var mRequestRealm : Results<RequestModelRealm>?
+        
+        // Read Realm instance
+        do {
+            let realm = try Realm()
+            mRequestRealm = realm.objects(RequestModelRealm.self)
+            
+        } catch {
+            print("Error initialising Realm, \(error) ")
+        }
+        
+        let index = mRequestRealm?.index(where: { $0.serviceRequestId == request!.serviceRequestId })
+        return index != nil
     }
     
     /*

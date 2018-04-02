@@ -12,8 +12,12 @@ import RealmSwift
 class RequestModelRealm: Object {
     
     @objc dynamic var serviceRequestId : String = ""
-    @objc dynamic var serviceName : String = ""
+    /*@objc dynamic var serviceName : String = ""
     @objc dynamic var serviceCode : String = ""
     @objc dynamic var RequestDescription : String = ""
+    @objc dynamic var address : String = ""
+    @objc dynamic var status : String = ""
+    @objc dynamic var statusNotes : String = ""
+    @objc dynamic var mediaUrl : String = ""*/
     
 }

@@ -11,18 +11,18 @@ import AlamofireImage
 
 class RequestModel : RequestModelRealm {
     
-    //@objc dynamic var serviceRequestId : String = ""
+    var serviceName : String = ""
+    var serviceCode : String = ""
+    var RequestDescription : String = ""
+    var address : String = ""
     var status : String = ""
     var statusNotes : String = ""
-    /*@objc dynamic var serviceName : String = ""
-    @objc dynamic var serviceCode : String = ""
-    @objc dynamic var RequestDescription : String = ""*/
+    var mediaUrl : String = ""
+    
     var requestDateTime : Date?
     var updatedDateTime : Date?
-    var address : String = ""
     var long : Double?
     var lat : Double?
-    var mediaUrl : String = ""
     var mediaData : Image?
     
 }

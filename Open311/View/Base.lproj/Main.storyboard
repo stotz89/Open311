@@ -122,6 +122,7 @@
                     <navigationItem key="navigationItem" title="Favorites" id="2j9-nl-hTY"/>
                     <connections>
                         <outlet property="favoriteTableView" destination="2Hy-Di-U1v" id="h68-Uq-Pcq"/>
+                        <segue destination="HiO-nj-iVo" kind="show" identifier="showRequest" id="5q7-Z9-24E"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOS-Z0-qZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,4 +358,7 @@
             <point key="canvasLocation" x="-855" y="69"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5q7-Z9-24E"/>
+    </inferredMetricsTieBreakers>
 </document>
