@@ -120,7 +120,7 @@ class RequestTableViewController: UITableViewController {
         
         if segue.identifier == "createRequest" {
             
-            //let destinationVC = segue.destination as! CreateRequestViewController
+            let destinationVC = segue.destination as! CreateRequestViewController
             
             
         } else if segue.identifier == "showRequest" {

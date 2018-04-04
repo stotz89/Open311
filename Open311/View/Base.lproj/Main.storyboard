@@ -146,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="-20" y="329"/>
         </scene>
-        <!--Create Request View Controller-->
+        <!--Title-->
         <scene sceneID="MkX-In-D1K">
             <objects>
                 <viewController id="7AK-Oy-6BL" customClass="CreateRequestViewController" customModule="Open311" customModuleProvider="target" sceneMemberID="viewController">
@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hsw-hL-ubl">
-                                <rect key="frame" x="16" y="108" width="343" height="30"/>
+                                <rect key="frame" x="42" y="339" width="227" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -167,23 +167,48 @@
                                 <state key="normal" title="Create"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IconLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDa-RQ-f2d">
-                                <rect key="frame" x="16" y="224" width="74" height="21"/>
+                                <rect key="frame" x="150" y="491" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ob3-9B-bES">
+                                <rect key="frame" x="42" y="96" width="291" height="169"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idj-nI-8vL">
+                                <rect key="frame" x="42" y="96" width="291" height="169"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYZ-xV-cGr">
+                                <rect key="frame" x="277" y="328" width="69" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Use GPS"/>
+                                <connections>
+                                    <action selector="gpsButtonPressed:" destination="7AK-Oy-6BL" eventType="touchUpInside" id="dKb-it-R0i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JBh-4K-Zah"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="HsF-za-SN3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Wac-Mj-LD2">
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="7AK-Oy-6BL" id="JE5-E7-ZwJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="adressTextField" destination="Hsw-hL-ubl" id="iXb-0i-TSe"/>
                         <outlet property="iconLabel" destination="mDa-RQ-f2d" id="VRL-PO-rGN"/>
+                        <outlet property="imageView" destination="idj-nI-8vL" id="JdZ-N4-a4b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhG-WX-n7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2338" y="-1164"/>
+            <point key="canvasLocation" x="2336.8000000000002" y="-1164.4677661169417"/>
         </scene>
         <!--Request View Controller-->
         <scene sceneID="OZb-uM-qUp">
@@ -359,6 +384,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5q7-Z9-24E"/>
+        <segue reference="VUr-aQ-89I"/>
     </inferredMetricsTieBreakers>
 </document>
