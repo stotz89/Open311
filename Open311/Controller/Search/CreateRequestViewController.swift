@@ -14,8 +14,8 @@ class CreateRequestViewController: UIViewController {
     
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var adressTextField: UITextField!
+    @IBOutlet weak var descriptionText: UITextView!
     
     let imagePicker = UIImagePickerController()
     let locationManager = CLLocationManager()
@@ -36,9 +36,7 @@ class CreateRequestViewController: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         
-        iconLabel.font = UIFont.icon(from: .FontAwesome, ofSize: 50.0)
-        iconLabel.text = String.fontAwesomeIcon("twitter")
-        
+        descriptionText.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -125,4 +123,16 @@ extension CreateRequestViewController: CLLocationManagerDelegate {
         print(error)
         adressTextField.text = "Location unavailable"
     }
+}
+
+extension CreateRequestViewController: UITextViewDelegate {
+    
+    func descriptionText(_ descriptionText: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            descriptionText.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
 }

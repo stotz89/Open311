@@ -51,11 +51,10 @@ class RequestViewController: UIViewController {
     
     @IBOutlet weak var requestLocationMap: MKMapView!
     @IBOutlet weak var mediaUrlImage: UIImageView!
-    @IBOutlet weak var requestIdLabel: UILabel!
     @IBOutlet weak var requestStatusLabel: UILabel!
-    @IBOutlet weak var requestDescriptionLabel: UILabel!
     @IBOutlet weak var requestedDateLabel: UILabel!
     @IBOutlet weak var updatedDateLabel: UILabel!
+    @IBOutlet weak var descriptionText: UITextView!
     
     var request : RequestModel?
     var isFavorite : Bool = false
@@ -63,6 +62,7 @@ class RequestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = request!.serviceRequestId
         
         isFavorite = checkIfRequestIsAlreadyFavorite()
         
@@ -73,9 +73,8 @@ class RequestViewController: UIViewController {
         }
         
         mediaUrlImage.image = request!.mediaData
-        requestIdLabel.text = request!.serviceRequestId
         requestStatusLabel.text = request!.status
-        requestDescriptionLabel.text = request!.RequestDescription
+        descriptionText.text = request!.RequestDescription
         if request!.requestDateTime != nil {
             requestedDateLabel.text = getDateAsString(date: request!.requestDateTime!)
         } else {
