@@ -84,7 +84,11 @@
                                     <segue destination="7AK-Oy-6BL" kind="show" id="Fv0-wj-aRd"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="action" id="RZr-uz-UHT"/>
+                            <barButtonItem systemItem="action" id="RZr-uz-UHT">
+                                <connections>
+                                    <action selector="sortButtonPressed:" destination="ibZ-cD-pyT" id="Vh2-Ly-2zE"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

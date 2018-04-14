@@ -114,6 +114,9 @@ class RequestTableViewController: UITableViewController {
         performSegue(withIdentifier: "createRequest", sender: self)
         
     }
+    @IBAction func sortButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
     
     // MARK: Segue Actions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
